@@ -4,26 +4,17 @@
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
-int main(int argc, char *argv[]) {
-	
-	char src[30];
+void main(int argc, char *argv[]) {
 	
 	FILE*fp = NULL;
-	fp = fopen("sample.txt", "w");
+	char c;
+	fp = fopen("sample.txt", "r");
 	
-	printf("input a word : ");
-	scanf("%s",src);
-	fprintf(fp, "%s\n", src);
-	
-	printf("input a word : ");
-	scanf("%s",src);
-	fprintf(fp, "%s\n", src);
-	
-	printf("input a word : ");
-	scanf("%s",src);
-	fprintf(fp, "%s\n", src);
+	if(fp == NULL)
+		printf("파일을 열지 못함");
+		
+	while((c=fgetc(fp)) != EOF)
+		putchar(c);
 
 	fclose(fp);
-	
-	return 0;
 }
